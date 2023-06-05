@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:ital,wght@1,300;1,400&display=swap');
+
+
+/* Contenido referente a asignación de CSS, primeramente tenemos una selección total
+donde ajuste margenes, el color de fondo de la pagina, el tamaño de las letras, entre otros*/
+
+
+*{
+    box-sizing:  border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px
+}
+
+body{
+    background-color: black;
+}
+
+/* Aquí empece a establecer el CSS del Header, configure el color de fondo que tendría, su display como flex, alinee los objetos de forma centrada, les establecí un margen de separación
+y modifique el tamaño que tendría el header, asi como algunos detalles mas como: logo, fuente, animaciones, entre otros  */
+
+.header{
+    background-color: #00008B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10%;
+    height: 80px;
+}
+
+
+.header .logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    transition: all 0.2s;
+}
+
+.logo:hover{
+    transform: scale(1.2);
+}
+
+.header .Red-Nav{
+    font-family: 'Lato', sans-serif;
+    list-style: none;
+}
+
+.header .Red-Nav li{
+    display: inline-block;
+    margin: 0 18px;
+    transition: all 0.2s;
+}
+
+.header .Red-Nav a{
+    color: aliceblue;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.header .Red-Nav li a:hover {
+    color: red;
+}
+
+.header .Red-Nav li:hover{
+    transform: scale(1.2);
+}
+
+
+/* Main de la Pagina */ 
+
+
+
+
+/* Footer de la Pagina*/
+
+footer{
+    position:relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    padding-top: 40px;
+    color: white;
+    width: 100%;
+    height: auto;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+.contenido-footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.contenido-footer h3{
+    font-size: 2.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.contenido-footer p{
+    max-width: auto;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: #fff
+}
+
+.sociales{
+    list-style: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.sociales li{
+    margin:  0 10px;
+}
+
+.sociales li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    transition: all 1.2s;
+}
+
+.sociales li a:hover{
+    transform: scale(1.2);
+    color: red;
+}
