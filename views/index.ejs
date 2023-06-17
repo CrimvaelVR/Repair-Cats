@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Tecnología - Repair Cats</title>
+    <link rel="shortcut icon" href="/assets/img/REPAIRCATS.png" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- Esta parte es la cabecera/header -->
+    <header class="header">
+        <img src="/assets/img/REPAIRCATS.png" alt="Logo de la tienda" class="logo">
+        <div>
+            <nav>
+                <ul class = "Red-Nav">
+                    <li><a href="http://localhost:3000/api/inicio">Inicio</a></li> 
+                    <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
+                    <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a></li>
+                    <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Esta parte es el banner tipo cabecera -->
+    <section class="banner-inicio">
+        <div class="contenido-banner">
+            <h1>Lo Mejor en la Tecnología</h1>
+            <h2>Tu tienda favorita en el servicio tecnológico</h2>
+        </div>
+    </section>
+    
+    <!-- Esta parte son los artículos recientes de la pagina -->
+
+    <section class="principal-recientes">
+        <p id="Datos" class="invisible"> <%= JSON %> </p>
+        <h1>Productos Recientes</h1>
+        <div class="computadoras" id="Datostabla"></div>
+        <script>
+            let res = document.getElementById("Datostabla");
+            let Datosjson = JSON.parse(document.getElementById("Datos").innerText);
+            let count = 0;
+    
+            res.innerHTML = "";
+            for(let item of Datosjson){
+                if (count < 3) {
+                    let computadoraDiv = document.createElement("div");
+                    computadoraDiv.classList.add("computadora");
+                    computadoraDiv.innerHTML = `
+                        <img src="${item.imagen}" alt="${item.nombreprod}">
+                        <h2>${item.nombreprod}</h2>
+                        <p>${item.descripción}</p>
+                        <p>${item.costo}</p>
+                        <a href="#">Detalles del Producto</a>
+                    `;
+                    res.appendChild(computadoraDiv);
+                    count++;
+                } else {
+                    break;
+                }
+            }
+        </script>
+    </section>
+
+    <!-- Esta parte es una sección de Videos de los Usuarios  -->
+    <section class="user-videos">
+        <h1>Video-Reseñas</h1>
+        <div class="videos">
+            <div class="video">
+                <h2>Acer Nitro 5 Reseña</h2>
+                <iframe class="videourl" width="560" height="315" src="https://www.youtube.com/embed/NNAdbmm0Dyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <h2>RTX 4090 Reseña</h2>
+                <iframe class="videourl" width="560" height="315" src="https://www.youtube.com/embed/5O_v6QrU9Kk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <h2>Macbook Air M1 2021</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/6MOXJzQAJzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Esta parte es una sección y aside de Ubicación y Horarios  -->
+    <section class="container">
+        <section class="ubicacion">
+            <h2>Ubicación</h2>
+            <p>Mi calle principal</p>
+            <p>La Hoyada, Estado Trujillo, Venezuela</p>
+            <iframe class="ubimedia" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62989.77414869368!2d-70.58715820280763!3d9.345576347113008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e62d64a3edc9e65%3A0xe250230ea94d72dd!2sSan%20Rafael%20de%20Carvajal%2C%20Trujillo!5e0!3m2!1ses-419!2sve!4v1685931034725!5m2!1ses-419!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <aside class="horarios">
+            <h2>Horarios</h2>
+            <ul>
+                <li>Lunes - Viernes: 8AM - 6PM</li>
+                <li>Sábado: 10AM - 2PM</li>
+                <li>Domingo: Cerrado</li>
+            </ul>
+        </aside>
+    </section>
+
+    
+    <!-- Esta parte es el footer de la pagina -->
+    <footer>
+        <div class="contenido-footer">
+            <h3>Repair Cats</h3>
+            <p>Tienda online reconocida internacionalmente</p>
+        </div>
+        <!-- Iconos de Redes Sociales -->
+        <ul class="sociales">
+            <li><a href="https://www.facebook.com" class="fa fa-facebook"></a></li>
+            <li><a href="https://www.instagram.com/crimshosho/" class="fa fa-instagram"></a></li>
+            <li><a href="https://www.twitter.com" class="fa fa-twitter"></a></li>
+            <li><a href="https://www.youtube.com/channel/UCAhV1JKN_SPmoVkFBlDuoRw" class="fa fa-youtube"></a></li>
+        </ul>
+    </footer>
+</body>
+</html>
