@@ -12,20 +12,50 @@
 <body>
 
     <!-- Esta parte es la cabecera/header -->
-    <header class="header">
-        <img src="/assets/img/REPAIRCATS.png" alt="Logo de la tienda" class="logo">
-        <div>
-            <nav>
-                <ul class = "Red-Nav">
-                    <li><a href="http://localhost:3000/api/Inicio">Inicio</a></li> 
-                    <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
-                    <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a></li>
-                    <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
-                    
-                </ul>
-            </nav>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#"><img src="/assets/img/REPAIRCATS.png" alt="DevBabu.com"></a>
+            </div>
+            <div class="navbar">
+                <div class="close-nav"><button>×</button></div>
+                <nav>
+                    <ul>
+                        <li><a href="http://localhost:3000/api/inicio">Inicio</a></li>
+                        <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
+                        <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a></li>
+                        <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="menu-bar">
+                <button><i></i></button>
+            </div>
         </div>
     </header>
+    <script>
+        const theBody = document.querySelector('body');
+        const openNav = document.querySelector('.menu-bar button');
+        const closeNav = document.querySelector('.close-nav button');
+        const Navbar = document.querySelector('.navbar');
+
+        // function bodyScroll(){
+        //     if(Navbar.classList.contains('show')){
+        //         theBody.classList.add('hide-scroll');
+        //     }
+        //     else if(theBody.classList.contains('hide-scroll')){
+        //         theBody.classList.remove('hide-scroll');
+        //     }
+        // }
+
+        function showHide(){
+            Navbar.classList.toggle('show');
+            // bodyScroll();
+        }
+
+        openNav.onclick = showHide;
+        closeNav.onclick = showHide;
+    </script>
 
 
     <!-- Banner de Contacto-->
