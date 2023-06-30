@@ -21,56 +21,183 @@ body{
 /* Aquí empece a establecer el CSS del Header, configure el color de fondo que tendría, su display como flex, alinee los objetos de forma centrada, les establecí un margen de separación
 y modifique el tamaño que tendría el header, asi como algunos detalles mas como: logo, fuente, animaciones, entre otros  */
 
-.header{
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+header {
     background-color: #00008B;
+    box-shadow: 0 10px 15px -3px 
+rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px 
+rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+header .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 10%;
-    height: 80px;
+}
+header .logo img {
+    height: 50px;
+    display: block;
 }
 
+header .logo {
 
-.header .logo{
-    cursor: pointer;
-    margin-right: auto;
-}
-
-.logo {
-    height: 80px;
     width: auto;
     transition: all 0.2s;
 }
 
-.logo:hover{
+header .logo:hover{
     transform: scale(1.2);
 }
 
-.header .Red-Nav{
-    font-family: 'Lato', sans-serif;
-    list-style: none;
+.navbar{
+     z-index: 1000;
 }
 
-.header .Red-Nav li{
-    display: inline-block;
-    margin: 0 18px;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: 
+#00008B;
+    padding: 20px;
+    transition: left 0.3s;
+}
+
+.navbar.show {
+    left: 0 !important;
+}
+
+.hide-scroll {
+    overflow: hidden;
+}
+.swiper-hidden {
+    display: none;
+  }
+.navbar ul {
+    all: unset;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+.navbar ul a {
+    all: unset;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 28px;
     transition: all 0.2s;
 }
-
-.header .Red-Nav a{
-    color: aliceblue;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.header .Red-Nav li a:hover {
+.navbar ul a:hover {
     color: red;
 }
 
-.header .Red-Nav li:hover{
+.navbar ul li{
+    transition: all 0.2s;
+}
+
+.navbar ul li:hover{
     transform: scale(1.2);
 }
 
+.close-nav {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.close-nav button {
+    all: unset;
+    background: 
+#f7f7f7;
+    font-size: 42px;
+    cursor: pointer;
+    border: 1px solid 
+rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 3px;
+    color: 
+#444444;
+}
+.close-nav button:hover {
+    color: 
+#222222;
+    background: 
+white;
+}
+
+.menu-bar button {
+    border: 1px solid 
+rgba(0, 0, 0, 0.1);
+    background: 
+#f7f7f7;
+    height: 50px;
+    width: 50px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.menu-bar i {
+    display: block;
+    border-top: 3px solid 
+#444444;
+    border-bottom: 3px solid 
+#444444;
+}
+.menu-bar i::after {
+    display: block;
+    content: "";
+    border-top: 3px solid 
+#444444;
+    margin: 6px 0;
+}
+
+.menu-bar button:hover {
+    background: 
+white;
+}
+.menu-bar button:hover i {
+    border-color: 
+#222222;
+}
+
+.container {
+
+    margin: 0 auto;
+    padding: 30px;
+}
+
+@media (min-width: 600px) {
+    .navbar {
+        all: unset;
+        display: block;
+    }
+    .navbar ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+    .navbar ul a {
+        font-size: inherit;
+    }
+    .close-nav,
+    .menu-bar {
+        display: none;
+    }
+    
+}
 
 /* Categorías */
 
@@ -85,94 +212,146 @@ y modifique el tamaño que tendría el header, asi como algunos detalles mas com
     align-items: center;
     border-radius: 10px;
     margin-bottom: 40px;
-}
+  }
 
-.top-categories{
+  .top-categories{
     display: flex;
     gap: 2rem;
     flex-direction: column;
     margin-bottom: 3rem;
     padding: 50px;
-}
+    overflow: hidden; /* Prueba de Desaparecer*/
+  }
 
-.container-categories{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    padding: 2rem;
-}
 
-.card-category{
-    height: 20rem;
+  .card-category{
+    height: 100%; /* Cambiar a auto para que se adapte al contenido */
+    width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    border-radius: 2rem;
-    gap: 2rem;
-    justify-content: center;
+    flex-direction: row;
+    gap:2rem;
     font-family: 'Lato', sans-serif;
-
+    justify-content: center;
 }
-
-.category-laptops{
+  .swiper-wrapper{
+    padding-bottom: 30px;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: -20px; /* La mitad del espacio que se dejó */
+  }
+  .category-laptops{
     background-image: linear-gradient(#00000080, #00000080), url('/assets/img/categorialaptops.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
 
-.category-computadores{
+  }
+
+  .category-computadores{
     background-image: linear-gradient(#00000080, #00000080), url('/assets/img/categoriacomputadores.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
+  }
 
-.category-audifonos{
+  .category-audifonos{
     background-image: linear-gradient(#00000080, #00000080), url('/assets/img/categoriaauriculares.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
+  }
 
-.category-ratones{
+  .category-ratones{
     background-image: linear-gradient(#00000080, #00000080), url('/assets/img/categoriamouses.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
+  }
 
-.category-teclados{
-    background-image: linear-gradient(#00000080, #00000080), url('/assets/img/categoriateclados.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+  .category-teclados{
+     background-image : linear-gradient(#00000080, #00000080), url('/assets/img/categoriateclados.webp');
+     background-size : cover;
+     background-position : center;
+     background-repeat : no-repeat;
+  }
 
-.category-gpu{
-    background-image: linear-gradient(#00000080, #00000080), url('/assets/img/rtx4090.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+  .category-gpu{
+     background-image : linear-gradient(#00000080, #00000080), url('/assets/img/rtx4090.jpg');
+     background-size : cover;
+     background-position : center;
+     background-repeat : no-repeat; 
+   }
 
-.card-category p{
-    font-size: 2.5rem;
-    color: white;
-    text-transform: capitalize;
-    position: relative;
-}
+   .card-category p{
+     font-size : 6rem; 
+     color : white; 
+     text-transform : capitalize; 
+     text-align: center;
+     position: absolute;
+     top: 50%; /* Colocar el texto a la mitad del slide */
+     left: 50%;
+     transform: translate(-50%, -50%); /* Mover el texto hacia arriba y hacia la izquierda la mitad de su ancho y alto */
+   }
 
 .card-category span{
-    color: white;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: all 1s;
+     color : white; 
+     font-size : 1.6rem; 
+     cursor : pointer; 
+     position: absolute;
+     top: 80%; /* Colocar el texto a la mitad del slide */
+     left: 50%;
+     transform: translate(-50%, -50%); /* Mover el texto hacia arriba y hacia la izquierda la mitad de su ancho y alto */
 }
 
 .card-category span:hover{
-    color: red;
+      color:red
 }
+
+.swiper-container .swiper-zoom-container>img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 500px;  
+}
+
+.swiper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+@media screen and (max-width: 768px) {
+  
+    .heading-1 {
+        font-size : 3rem; /* Reducir el tamaño del título */
+        padding : 20px; /* Reducir el padding del título */
+     }
+  
+     .top-categories {
+         padding : 20px; /* Reducir el padding de las categorías */
+     }
+  
+     .card-category p {
+         font-size : 2rem; /* Reducir el tamaño del texto de las categorías */
+     }
+  
+     .card-category span {
+         font-size : 1.2rem; /* Reducir el tamaño del botón de las categorías */
+         padding : 5px; /* Reducir el padding del botón de las categorías */
+     }
+  }
+
 
 /* Productos en Venta */
 .tarjetas {
@@ -236,6 +415,24 @@ y modifique el tamaño que tendría el header, asi como algunos detalles mas com
     transform: scale(1.1);
 }
 
+@media screen and (max-width: 767px) {
+    .tarjeta {
+        width: 80%;
+        margin: 20px auto;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .tarjeta {
+        width: 45%;
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .tarjeta {
+        width: 30%;
+        margin: 20px;
+    }
+}
 
 /*Tabla de mejores GPU*/
 
@@ -271,6 +468,30 @@ tr:hover {
     background-color:darkblue;
     color: white;
 }
+@media screen and (max-width: 480px) {
+    table {
+      width: 100%;
+      flex-direction: column;
+    }
+    th, td {
+      display: block;
+    }
+    th {
+      text-align: center;
+    }
+    td {
+      text-align: center;
+      border: none;
+      border-bottom: 1px solid black;
+      padding: 10px;
+
+    }
+    td:before {
+      content: attr(data-label);
+      float: center;
+      font-weight: bold;
+    }
+  }
 
 /* Footer de la Pagina*/
 
@@ -335,3 +556,15 @@ footer{
     transform: scale(1.2);
     color: red;
 }
+
+/* Esto reduce el tamaño del texto y el espacio entre los elementos cuando la pantalla es menor de 768px */ @media (max-width: 768px) { .contenido-footer h3 { font-size: 1.8rem; line-height: 2.5rem; }
+
+.contenido-footer p { font-size: 12px; line-height: 24px; }
+
+.sociales li { margin: 0 10px; } }
+
+/* Esto reduce el tamaño del texto y el espacio entre los elementos cuando la pantalla es menor de 480px */ @media (max-width: 480px) { .contenido-footer h3 { font-size: 1.5rem; line-height: 2rem; }
+
+.contenido-footer p { font-size: 10px; line-height: 20px; }
+
+.sociales li { margin: 0 5px; } }
