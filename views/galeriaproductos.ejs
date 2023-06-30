@@ -8,58 +8,115 @@
     <link rel="shortcut icon" href="/assets/img/REPAIRCATS.png" />
     <link rel="stylesheet" type="text/css" href="/css/galeriaproductos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 </head>
 <body>
 
     <!-- Esta parte es la cabecera/header -->
-    <header class="header">
-        <img src="/assets/img/REPAIRCATS.png" alt="Logo de la tienda" class="logo">
-        <div>
-            <nav>
-                <ul class = "Red-Nav">
-                    <li><a href="http://localhost:3000/api/inicio">Inicio</a></li> 
-                    <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
-                    <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a></li>
-                    <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
-                </ul>
-            </nav>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#"><img src="/assets/img/REPAIRCATS.png" alt="DevBabu.com"></a>
+            </div>
+            <div class="navbar">
+                <div class="close-nav"><button>×</button></div>
+                <nav>
+                    <ul>
+                        <li><a href="http://localhost:3000/api/inicio">Inicio</a></li>
+                        <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
+                        <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a><a/li>
+                        <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="menu-bar">
+                <button><i></i></button>
+            </div>
         </div>
     </header>
+    <script>
+        const theBody = document.querySelector('body');
+        const openNav = document.querySelector('.menu-bar button');
+        const closeNav = document.querySelector('.close-nav button');
+        const Navbar = document.querySelector('.navbar');
 
-    <!-- Esta  parte son las categorías y mejores productos -->
+        // function bodyScroll(){
+        //     if(Navbar.classList.contains('show')){
+        //         theBody.classList.add('hide-scroll');
+        //     }
+        //     else if(theBody.classList.contains('hide-scroll')){
+        //         theBody.classList.remove('hide-scroll');
+        //     }
+        // }
+
+        function showHide(){
+            Navbar.classList.toggle('show');
+            // bodyScroll();
+        }
+
+        openNav.onclick = showHide;
+        closeNav.onclick = showHide;
+    </script>
+
+    
+        <!-- Crear el contenedor del slider -->
+
     <section class="container top-categories">
         <h1 class="heading-1">Categorías Principales</h1>
-        <div class="container-categories">
-                <!-- Card Category es para el CSS en general, mientras que la otra category es para la imagen-->
-            <div class="card-category category-laptops">
-                <p>Laptops</p>
-                <span>Ver mas</span>
+        <!-- Crear el contenedor del slider -->
+        <div class="swiper-container">
+          <!-- Crear la envoltura de los elementos del slider -->
+          <div class="swiper-wrapper">
+            <!-- Añadir los elementos del slider -->
+            <div class="swiper-slide card-category category-laptops">
+              <p>Laptops</p>
+              <span>Ver mas</span>
             </div>
-            <div class="card-category category-computadores">
-                <p>Computadores</p>
-                <span>Ver mas</span>
+            <div class="swiper-slide card-category category-computadores">
+              <p>Computadores</p>
+              <span>Ver mas</span>
             </div>
-            <div class="card-category category-audifonos">
-                <p>Auriculares</p>
-                <span>Ver mas</span>
+            <div class="swiper-slide card-category category-audifonos">
+              <p>Auriculares</p>
+              <span>Ver mas</span>
             </div>
-            <div class="card-category category-gpu">
-                <p>Tarjetas Gráficas</p>
-                <span>Ver mas</span>
+            <div class="swiper-slide card-category category-gpu">
+              <p>Tarjetas Gráficas</p>
+              <span>Ver mas</span>
             </div>
-            <div class="card-category category-teclados">
-                <p>Teclados</p>
-                <span>Ver mas</span>
+            <div class="swiper-slide card-category category-teclados">
+              <p>Teclados</p>
+              <span>Ver mas</span>
             </div>
-            <div class="card-category category-ratones">
-                <p>Mouses</p>
-                <span>Ver mas</span>
+            <div class="swiper-slide card-category category-ratones">
+              <p>Mouses</p>
+              <span>Ver mas</span>
             </div>
+          </div>
+          <!-- Añadir la paginación -->
+          <div class="swiper-pagination"></div>
         </div>
-
+      
         <section class="container top-products" ></section>
-
-    </section>
+      
+      </section>
+      
+      <!-- Añadir el JS de Swiper -->
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      
+      <!-- Inicializar el slider -->
+      <script>
+        var swiper = new Swiper('.swiper-container', {
+          // Opciones del slider
+          loop: true, // Repetir el slider
+          autoplay: true, // Reproducir automáticamente
+          pagination: {
+            el: '.swiper-pagination', // Elemento de paginación
+            clickable: true, // Hacer clic en los puntos para cambiar de slide
+          },
+        });
+      </script>
 
     <!-- Productos en Venta -->
     <main>
