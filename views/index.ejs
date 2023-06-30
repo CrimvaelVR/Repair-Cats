@@ -8,33 +8,65 @@
     <link rel="shortcut icon" href="/assets/img/REPAIRCATS.png" />
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
 
     <!-- Esta parte es la cabecera/header -->
-    <header class="header">
-        <img src="/assets/img/REPAIRCATS.png" alt="Logo de la tienda" class="logo">
-        <div>
-            <nav>
-                <ul class = "Red-Nav">
-                    <li><a href="http://localhost:3000/api/inicio">Inicio</a></li> 
-                    <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
-                    <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a></li>
-                    <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
-                </ul>
-            </nav>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#"><img src="/assets/img/REPAIRCATS.png" alt=></a>
+            </div>
+            <div class="navbar">
+                <div class="close-nav"><button>×</button></div>
+                <nav>
+                    <ul>
+                        <li><a href="http://localhost:3000/api/inicio">Inicio</a></li>
+                        <li><a href="http://localhost:3000/api/galeria">Productos</a></li>
+                        <li><a href="http://localhost:3000/api/somos">¿Quienes Somos?</a><a/li>
+                        <li><a href="http://localhost:3000/api/contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="menu-bar">
+                <button><i></i></button>
+            </div>
         </div>
     </header>
+    <script>
+        const theBody = document.querySelector('body');
+        const openNav = document.querySelector('.menu-bar button');
+        const closeNav = document.querySelector('.close-nav button');
+        const Navbar = document.querySelector('.navbar');
 
+        // function bodyScroll(){
+        //     if(Navbar.classList.contains('show')){
+        //         theBody.classList.add('hide-scroll');
+        //     }
+        //     else if(theBody.classList.contains('hide-scroll')){
+        //         theBody.classList.remove('hide-scroll');
+        //     }
+        // }
+
+        function showHide(){
+            Navbar.classList.toggle('show');
+            // bodyScroll();
+        }
+
+        openNav.onclick = showHide;
+        closeNav.onclick = showHide;
+    </script>
     <!-- Esta parte es el banner tipo cabecera -->
-    <section class="banner-inicio">
-        <div class="contenido-banner">
-            <h1>Lo Mejor en la Tecnología</h1>
-            <h2>Tu tienda favorita en el servicio tecnológico</h2>
-        </div>
-    </section>
+    <section class="banner">
+		<div class="banner-content">
+			<h1>Repair Cats</h1>
+            <p>En Repair Cats, encontrarás una amplia selección de computadoras de escritorio, portátiles, tablets y otros dispositivos electrónicos de las marcas más reconocidas del mercado.</p>
+		</div>
+	</section>
     
     <!-- Esta parte son los artículos recientes de la pagina -->
+
 
     <section class="principal-recientes">
         <p id="Datos" class="invisible"> <%= JSON %> </p>
@@ -67,42 +99,65 @@
     </section>
 
     <!-- Esta parte es una sección de Videos de los Usuarios  -->
-    <section class="user-videos">
-        <h1>Video-Reseñas</h1>
-        <div class="videos">
-            <div class="video">
-                <h2>Acer Nitro 5 Reseña</h2>
-                <iframe class="videourl" width="560" height="315" src="https://www.youtube.com/embed/NNAdbmm0Dyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video">
-                <h2>RTX 4090 Reseña</h2>
-                <iframe class="videourl" width="560" height="315" src="https://www.youtube.com/embed/5O_v6QrU9Kk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="video">
-                <h2>Macbook Air M1 2021</h2>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/6MOXJzQAJzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
+<!-- Crear el contenedor del slider -->
+<h1 class="h1-swiper-video"> Videos de los Usuarios</h1>
+<div class="swiper-container">
+  <!-- Crear la envoltura de los elementos del slider -->
+  <div class="swiper-wrapper">
+    <!-- Añadir los elementos del slider -->
+    <div class="swiper-slide">
+      <h2>Acer Nitro 5 Reseña</h2>
+      <iframe class="videourl" src="https://www.youtube.com/embed/NNAdbmm0Dyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="swiper-slide">
+      <h2>RTX 4090 Reseña</h2>
+      <iframe class="videourl" src="https://www.youtube.com/embed/5O_v6QrU9Kk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="swiper-slide">
+      <h2>Macbook Air M1 2021</h2>
+      <iframe class="videourl" src="https://www.youtube.com/embed/6MOXJzQAJzw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+  <!-- Añadir la paginación -->
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Añadir el JS de Swiper -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Inicializar el slider -->
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    // Opciones del slider
+    loop: true, // Repetir el slider
+    autoplay: true, // Reproducir automáticamente
+    pagination: {
+      el: '.swiper-pagination', // Elemento de paginación
+      clickable: true, // Hacer clic en los puntos para cambiar de slide
+    },
+  });
+</script>
+
+<!-- Ubicacion y Horarios -->
+
+
+<section class="container">
+    <section class="ubicacion">
+        <h2>Ubicación</h2>
+        <p>Mi calle principal</p>
+        <p>La Hoyada, Estado Trujillo, Venezuela</p>
+        <iframe class="ubimedia" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62989.77414869368!2d-70.58715820280763!3d9.345576347113008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e62d64a3edc9e65%3A0xe250230ea94d72dd!2sSan%20Rafael%20de%20Carvajal%2C%20Trujillo!5e0!3m2!1ses-419!2sve!4v1685931034725!5m2!1ses-419!2sve"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
-    <!-- Esta parte es una sección y aside de Ubicación y Horarios  -->
-    <section class="container">
-        <section class="ubicacion">
-            <h2>Ubicación</h2>
-            <p>Mi calle principal</p>
-            <p>La Hoyada, Estado Trujillo, Venezuela</p>
-            <iframe class="ubimedia" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62989.77414869368!2d-70.58715820280763!3d9.345576347113008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e62d64a3edc9e65%3A0xe250230ea94d72dd!2sSan%20Rafael%20de%20Carvajal%2C%20Trujillo!5e0!3m2!1ses-419!2sve!4v1685931034725!5m2!1ses-419!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
-
-        <aside class="horarios">
-            <h2>Horarios</h2>
-            <ul>
-                <li>Lunes - Viernes: 8AM - 6PM</li>
-                <li>Sábado: 10AM - 2PM</li>
-                <li>Domingo: Cerrado</li>
-            </ul>
-        </aside>
-    </section>
+    <aside class="horarios">
+        <h2>Horarios</h2>
+        <ul>
+            <li>Lunes - Viernes: 8AM - 6PM</li>
+            <li>Sábado: 10AM - 2PM</li>
+            <li>Domingo: Cerrado</li>
+        </ul>
+    </aside>
+</section>
 
     
     <!-- Esta parte es el footer de la pagina -->
